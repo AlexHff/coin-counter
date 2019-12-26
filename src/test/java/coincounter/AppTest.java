@@ -1,4 +1,4 @@
-package com;
+package coincounter;
 
 import org.junit.Test;
 
