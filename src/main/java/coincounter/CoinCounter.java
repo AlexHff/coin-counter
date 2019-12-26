@@ -34,7 +34,7 @@ public class CoinCounter {
 
         // Reduce the noise to avoid false circle detection
         Mat blurred = new Mat();
-        Imgproc.GaussianBlur(gray, blurred, new Size(3, 3), 0);
+        Imgproc.GaussianBlur(gray, blurred, new Size(17, 17), 0);
 
         // Detect circles
         Mat circles = new Mat();
