@@ -29,7 +29,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-
             <!--
                 You can run jacoco in the default profile with:
                 mvn jacoco:prepare-agent test jacoco:report

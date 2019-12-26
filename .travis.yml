@@ -2,6 +2,6 @@ language: java
 install: true
 jdk: oraclejdk11
 script:
-- mvn install
+  - mvn install
 after_success:
-- mvn coveralls:report
+  - mvn clean test jacoco:report coveralls:report
