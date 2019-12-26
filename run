@@ -1,2 +1,0 @@
-!#/bin/zsh
-mvn clean compile exec:java -Dexec.args="resources/samples"

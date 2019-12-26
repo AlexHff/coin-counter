@@ -26,3 +26,6 @@ buildNumber.properties
 .project
 .vscode/
 .editorconfig
+
+# Script
+run
