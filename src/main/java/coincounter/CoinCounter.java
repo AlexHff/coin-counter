@@ -28,21 +28,30 @@ public class CoinCounter {
             System.exit(0);
         }
 
+        // Mean shift
+        Mat shifted = new Mat();
+        Imgproc.pyrMeanShiftFiltering(src, shifted, 21, 51);
+
         // Convert to grayscale
         Mat gray = new Mat();
-        Imgproc.cvtColor(src, gray, Imgproc.COLOR_RGB2GRAY);
+        Imgproc.cvtColor(shifted, gray, Imgproc.COLOR_RGB2GRAY);
+        
+        // Apply thresholding
+        Mat thresh = new Mat();
+        Imgproc.threshold(gray, thresh, 0, 255, Imgproc.THRESH_BINARY +
+                Imgproc.THRESH_OTSU);
 
         // Reduce the noise to avoid false circle detection
         Mat blurred = new Mat();
-        Imgproc.GaussianBlur(gray, blurred, new Size(17, 17), 0);
+        Imgproc.GaussianBlur(thresh, blurred, new Size(17, 17), 0);
 
         // Detect circles
-        Mat circles = new Mat();
-        Imgproc.HoughCircles(blurred, circles, Imgproc.HOUGH_GRADIENT, 1.2, 100);
+        Mat coins = new Mat();
+        Imgproc.HoughCircles(blurred, coins, Imgproc.HOUGH_GRADIENT, 1.2, 100);
 
-        // Draw the detected circles
-        for (int x = 0; x < circles.cols(); x++) {
-            double[] c = circles.get(0, x);
+        // Draw the detected coins
+        for (int x = 0; x < coins.cols(); x++) {
+            double[] c = coins.get(0, x);
             Point center = new Point(Math.round(c[0]), Math.round(c[1]));
             // Circle center
             Imgproc.circle(src, center, 1,
@@ -52,6 +61,8 @@ public class CoinCounter {
             Imgproc.circle(src, center, radius,
                     new Scalar(255, 0, 255), 3, 8, 0);
         }
+
+        System.out.println(coins.size());
 
         HighGui.imshow(this.file.getName(), src);
         HighGui.waitKey(0);
