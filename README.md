@@ -1,4 +1,4 @@
-# coin-counter [![Build Status](https://travis-ci.com/AlexHff/coin-counter.svg?branch=master)](https://travis-ci.com/AlexHff/coin-counter) [![Coverage Status](https://coveralls.io/repos/github/AlexHff/coin-counter/badge.svg?branch=master)](https://coveralls.io/github/AlexHff/coin-counter?branch=master)
+# coin-counter [![Build Status](https://travis-ci.com/AlexHff/coin-counter.svg?branch=master)](https://travis-ci.com/AlexHff/coin-counter)
 
 Java implementation of OpenCV Coin Detection
 
