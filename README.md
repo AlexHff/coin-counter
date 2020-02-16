@@ -2,6 +2,8 @@
 
 Java implementation of OpenCV Coin Detection
 
+![Image of coin detection](/resources/example.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
